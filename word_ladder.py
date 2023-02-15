@@ -93,7 +93,7 @@ def verify_word_ladder(ladder):
     False
     '''
     length1 = len(ladder) - 1
-    verified_pairs = [1 for index in range(length1) if _adjacent(ladder[index], ladder[index + 1]) ]
+    verified_pairs = [1 for index in range(length1) if _adjacent(ladder[index], ladder[index + 1])]
     return sum(verified_pairs) == length1
 
 
@@ -110,5 +110,5 @@ def _adjacent(word1, word2):
     length1 = len(word1)
     if length1 != len(word2):
         return False
-    num_same = [1 for index in range(length1) if word1[index] == word2[index] ]
+    num_same = [1 for index in range(length1) if word1[index] == word2[index]]
     return sum(num_same) == (length1 - 1)
