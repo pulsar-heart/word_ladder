@@ -48,7 +48,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                 if len(stack2) > 1:
                     for index in range(len(stack2) - 1):
                         if _adjacent(stack2[index], word2):
-                            stack2 = stack2[:index + 1] 
+                            stack2 = stack2[:index + 1]
                             break
                 stack2.append(word2)
                 if word2 == end_word:
@@ -81,6 +81,8 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
     else:
         stack4.reverse()
         return stack4
+
+
 def verify_word_ladder(ladder):
     '''
     Returns True if each entry of the input list is adjacent to its neighbors;
@@ -92,7 +94,9 @@ def verify_word_ladder(ladder):
     '''
     length1 = len(ladder) - 1
     verified_pairs = [1 for index in range(length1) if _adjacent(ladder[index], ladder[index + 1]) ]
-    return sum(verified_pairs) == length1 
+    return sum(verified_pairs) == length1
+
+
 def _adjacent(word1, word2):
     '''
     Returns True if the input words differ by only a single character;
@@ -106,5 +110,5 @@ def _adjacent(word1, word2):
     length1 = len(word1)
     if length1 != len(word2):
         return False
-    num_same = [1 for index in range(length1) if word1[index] == word2[index] ] 
+    num_same = [1 for index in range(length1) if word1[index] == word2[index] ]
     return sum(num_same) == (length1 - 1)
