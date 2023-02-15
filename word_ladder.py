@@ -80,7 +80,7 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                     break
                 deque1.append(stack2)
                 word_list2.remove(word2)
-    if len(stack3) == 0 and len(stack4)==0:
+    if len(stack3) == 0 and len(stack4) == 0:
         return None
     elif len(stack3) <= len(stack4) or len(stack4) == 0:
         return stack3
