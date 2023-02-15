@@ -36,6 +36,10 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
         text = f.read()
     word_list = text.split()
     word_list2 = copy.copy(word_list)
+    if start_word not in word_list:
+        return None
+    elif end_word not in word_list:
+        return None
     stack1 = [start_word]
     deque1 = deque([stack1])
     stack3 = []
@@ -76,7 +80,9 @@ def word_ladder(start_word, end_word, dictionary_file='words5.dict'):
                     break
                 deque1.append(stack2)
                 word_list2.remove(word2)
-    if len(stack3) <= len(stack4) or len(stack4) == 0:
+    if len(stack3) == 0 and len(stack4)==0:
+        return None
+    elif len(stack3) <= len(stack4) or len(stack4) == 0:
         return stack3
     else:
         stack4.reverse()
